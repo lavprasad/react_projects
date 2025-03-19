@@ -1,21 +1,23 @@
+import "../css/MovieCard.css"
+
 function MovieCard({ movie }) {
   function clickToFavourite() {
     alert("Added to Fav list");
   }
 
   return (
-    <div className="Movie-card">
-      <div className="Movie-poster">
-        <img src={movie.url} alt={movie.title} />
-        <div className="Movie-overlay">
-          <button className="buttom-fav" onClick={clickToFavourite}>
-            Fav
+    <div className="movie-card">
+      <div className="movie-poster">
+        <img src={`https://media.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`} alt={movie.title} />
+        <div className="movie-overlay">
+          <button className="favorite-btn" onClick={clickToFavourite}>
+          ♥
           </button>
         </div>
       </div>
-      <div className="Movie-info">
-        <h1>{movie.title}</h1>
-        <p>{movie.release_date}</p>
+      <div className="movie-info">
+        <h3>{movie.title}</h3>
+        <p>{movie.release_date?.split("-")[0]}</p>
       </div>
     </div>
   );
